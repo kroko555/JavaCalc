@@ -1,5 +1,5 @@
 public class Main {
-    public static String calc(String input){
+    public static String calc(String input) throws CalcException{
         int num1 = 0;
         int num2 = 0;
         char op = 0;
@@ -7,8 +7,7 @@ public class Main {
         String[] exp = input.split("[-+*/]"); //разделение num1 num2
         for(int i = 0;i< exp.length;i++){
             if(i>1){
-                System.out.println("Вы ввели больше одного оператора (+-*/)");
-                return input;
+                throw new CalcException("Вы ввели больше одного оператора (+-*/)");
             }
         }
         String[] oper = input.split("");
@@ -26,7 +25,7 @@ public class Main {
                     case "VIII" : num2 = 8; break;
                     case "IX" : num2 = 9; break;
                     case "X" : num2 = 10; break;
-                    default: System.out.println("Значение вышло за границы допустимых (I-X) или вы ввели разные числа (3+II)"); return input;
+                    default: throw new CalcException("Значение вышло за границы допустимых (I-X) или вы ввели разные числа (3+II)");
                 }
                 switch (exp[0]){
                     case "I": num1 = 1; break;
@@ -39,7 +38,7 @@ public class Main {
                     case "VIII" : num1 = 8; break;
                     case "IX" : num1 = 9; break;
                     case "X" : num1 = 10; break;
-                    default: System.out.println("Значение вышло за границы допустимых (I-X) или вы ввели разные числа (3+II)"); return input;
+                    default: throw new CalcException("Значение вышло за границы допустимых (I-X) или вы ввели разные числа (3+II)");
                 }
             } else{
                 num1 = Integer.parseInt(exp[0]);
@@ -47,8 +46,7 @@ public class Main {
             }
         }
         if(num1>10 || num2>10){
-            System.out.println("Значение вышло за границы допустимых (0-10)");
-            return input;
+            throw new CalcException("Значение вышло за границы допустимых (0-10)");
         }
 
 
