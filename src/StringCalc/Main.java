@@ -20,6 +20,7 @@ public class Main {
                 s1.contains("6") ||s1.contains("7") ||s1.contains("8") ||s1.contains("9") ||s1.contains("10")){
             throw new CalcException("Первое значение должно быть строкой");
         }
+        StringD.ValueStringChecker(s1);
         while (m1.find()) {
             s2 = m1.group(1);
         }
@@ -44,11 +45,11 @@ public class Main {
 
         for(int i = 0;i<input1.length();i++){
             if(oper[i].equals("+")){
-                StringD.StringChecker(s2);
+                StringD.ValueStringChecker(s2);
                 result = s1+s2; StringD.ResultChecker(result); System.out.println(result); break;
             }
             if(oper[i].equals("-")){
-                StringD.StringChecker(s2);
+                StringD.ValueStringChecker(s2);
                 result = s1.replace(s2,""); StringD.ResultChecker(result); System.out.println(result); break;
             }
             if(oper[i].equals("*")){
