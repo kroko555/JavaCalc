@@ -24,9 +24,25 @@ public class Main {
             s2 = m1.group(1);
         }
         System.out.println(s2);
+        String[] oper = input1.split("");
+        if(s2==null) {
+            int temp = Integer.parseInt(s3[1]);
+            for (int i = 0; i < input1.length(); i++) {
+                if (oper[i].equals("*")){ result = s1.repeat(temp);
+                StringD.ResultChecker(result);
+                System.out.println(result);
+                }
+                if (oper[i].equals("/")) {
+                    int endInd = s1.length() / temp;
+                    result = s1.substring(0, endInd);
+                    StringD.ResultChecker(result);
+                    System.out.println(result);
+                }
+        }
+            System.exit(0);
+        }
 
-        String[] oper = input.split("");
-        for(int i = 0;i<input.length();i++){
+        for(int i = 0;i<input1.length();i++){
             if(oper[i].equals("+")){
                 StringD.StringChecker(s2);
                 result = s1+s2; StringD.ResultChecker(result); System.out.println(result); break;
